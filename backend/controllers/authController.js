@@ -62,7 +62,23 @@ export async function login(req, res) {
 
   setSessionCookie(res, user)
   res.json({ user: toPublicUser(user) })
-}
+// const passwordMatches = user
+//   ? await bcrypt.compare(password, user.password)
+//   : false
+
+// console.log('LOGIN DEBUG:', {
+//   email,
+//   userFound: Boolean(user),
+//   isActive: user?.isActive,
+//   passwordExists: Boolean(user?.password),
+//   passwordMatches,
+// })
+
+// if (!user || !user.isActive || !passwordMatches) {
+//   res.status(401).json({ message: 'Invalid email or password' })
+//   return
+// }
+ }
 
 export async function requestPasswordReset(req, res) {
   const user = await User.findOne({ email: req.validatedBody.email, isActive: true })
