@@ -78,7 +78,7 @@ export async function login(req, res) {
 //   res.status(401).json({ message: 'Invalid email or password' })
 //   return
 // }
- }
+}
 
 export async function requestPasswordReset(req, res) {
   const user = await User.findOne({ email: req.validatedBody.email, isActive: true })
